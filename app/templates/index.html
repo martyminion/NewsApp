@@ -3,7 +3,7 @@
   <ul>
     {%for source in sources%}
       <li>{{source.id}}</li>
-      <li>{{source.description}}</li>
+      <a href="/search/{{source.id}}"><li>{{source.description}}</li></a>
       <li>{{source.category}}</li>
     {%endfor%}
   </ul>

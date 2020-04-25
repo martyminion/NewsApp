@@ -14,12 +14,10 @@ class Articles:
   defines the articles objects
   '''
 
-  def __init__(self,sourcename,author,title,description,image,publishedAt,url):
-    self.sourcename = sourcename
+  def __init__(self,author,title,descriptions,publishedAt,url):
     self.author = author
     self.title = title
-    self.description = description
-    self.image = image
+    self.descriptions = descriptions
     self.publishedAt = publishedAt
     self.url = url
     
