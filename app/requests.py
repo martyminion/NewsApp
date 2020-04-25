@@ -79,8 +79,9 @@ def get_source_articles(source_id):
       descriptions = article.get('description')
       publishedAt = article.get('publishedAt')
       url = article.get('url')
+      content = article.get('content')
 
-      article_object = Articles(author,title,descriptions,publishedAt,url)
+      article_object = Articles(author,title,descriptions,publishedAt,url,content)
       article_result_list.append(article_object)
     
     return  article_result_list

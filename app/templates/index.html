@@ -1,10 +1,18 @@
-<body>
+{%extends 'base.html'%}
+{%import 'macros.html' as macro%}
+
+{%block content%}
   <h3>News Sources</h3>
-  <ul>
-    {%for source in sources%}
-      <li>{{source.id}}</li>
-      <a href="/search/{{source.id}}"><li>{{source.description}}</li></a>
-      <li>{{source.category}}</li>
-    {%endfor%}
-  </ul>
-</body>
+  <br>
+  <div>
+  {{macro.displayNewsSources(sources)}}
+</div>
+{%endblock%}
+
+<!-- <ul>
+  {%for source in sources%}
+    <li>{{source.id}}</li>
+    <a href="/search/{{source.id}}"><li>{{source.description}}</li></a>
+    <li>{{source.category}}</li>
+  {%endfor%}
+</ul> -->
