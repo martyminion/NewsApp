@@ -17,25 +17,23 @@
 {%endmacro%}
 
 {%macro displayArticles(article_list)%}
-
-{%for article in article_list%}
-
-<div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 text-center">
-  <h3>{{article.title}}</h3>
-  <blockquote>{{article.author}} {{article.publishedAt}}</blockquote>
-  <div>
-    {%if article.descriptions%}
-    <h4>In the news today</h4>
-    <p>{{article.descriptions}}</p>
-    {%else%}
-    <p> All our articles are verified </p>
+  {%for article in article_list%}
+  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 text-center">
+    <h4>{{article.title}}</h4>
+    <blockquote>{{article.author}} {{article.publishedAt}}</blockquote>
+    <div>
+      {%if article.descriptions%}
+      <h5>In the news today</h5>
+      <p>{{article.descriptions}}</p>
+      {%else%}
+      <p> All our articles are verified </p>
+      {%endif%}
+    </div>
+    <div>
+      <h5>Main Story</h5>
+      <p>{{article.content}}</p>
+      <a href="{{article.url}}">Read More</a>
+    </div>
   </div>
-  <div>
-    <h4>Main Story</h4>
-    <p>{{article.content|truncate(200)}}</p>
-    <a href="{{article.url}}">Read More</a>
-  </div>
-</div>
-
-{%endfor%}
+  {%endfor%}
 {%endmacro%}

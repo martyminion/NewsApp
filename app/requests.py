@@ -73,15 +73,22 @@ def get_source_articles(source_id):
       article_list = article_response['articles']
     
     article_result_list = []
+   
     for article in article_list:
       author = article.get('author')
       title = article.get('title')
       descriptions = article.get('description')
       publishedAt = article.get('publishedAt')
       url = article.get('url')
-      content = article.get('content')
+      if article.get('content'):
+        content = article.get('content')
+      else:
+        content = "There's isn't much to see here, so visit the site for more"
 
       article_object = Articles(author,title,descriptions,publishedAt,url,content)
       article_result_list.append(article_object)
-    
     return  article_result_list
+    
+    
+    
+    
