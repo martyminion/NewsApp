@@ -3,8 +3,8 @@
 {%for source in source_list%}
 
 <div class="col-md-3 col-lg-2 col-sm-4 col-xs-6">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body ">
+  <div class="card source-card" style="width: 20rem;">
+    <div class="card-body source-card-body">
       <h5 class="card-title">{{source.name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{source.category}}</h6>
       <p class="card-text">{{source.description}}</p>
@@ -18,7 +18,7 @@
 
 {%macro displayArticles(article_list)%}
   {%for article in article_list%}
-  <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 text-center">
+  <div class="text-center">
     <h4>{{article.title}}</h4>
     <blockquote>{{article.author}} {{article.publishedAt}}</blockquote>
     <div>
@@ -35,5 +35,6 @@
       <a href="{{article.url}}">Read More</a>
     </div>
   </div>
+  <hr>
   {%endfor%}
 {%endmacro%}
