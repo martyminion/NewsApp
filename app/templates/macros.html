@@ -20,7 +20,8 @@
   {%for article in article_list%}
   <div class="text-center">
     <h4>{{article.title}}</h4>
-    <blockquote>{{article.author}} {{article.publishedAt}}</blockquote>
+    <blockquote>By {{article.author}} </blockquote>
+    <cite> Published on : {{article.publishedAt}}</cite>
     <div>
       {%if article.descriptions%}
       <h5>In the news today</h5>
@@ -32,7 +33,7 @@
     <div>
       <h5>Main Story</h5>
       <p>{{article.content}}</p>
-      <a href="{{article.url}}">Read More</a>
+      <a href="{{article.url}}">Read More...</a>
     </div>
   </div>
   <hr>

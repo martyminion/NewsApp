@@ -63,7 +63,6 @@ def get_source_articles(source_id):
   function that gets the articles from the different sources/ or the selcted source)
   '''
   article_url = base_url.format("top-headlines",source_id,api_key)
-  print(article_url)
   with urllib.request.urlopen(article_url) as url:
     article_data = url.read()
     article_response = json.loads(article_data)
