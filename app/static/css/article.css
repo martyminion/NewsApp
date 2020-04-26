@@ -1,3 +1,23 @@
 .article{
-  margin: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.article-author{
+  font-size: 20px;
+}
+.article-published{
+  font-size: 15px;
+}
+h4,h3{
+  font-weight: 800;
+}
+.article-title{
+  font-family: 'Old Standard TT', serif;
+}
+.article-all{
+  border: skyblue 2px solid;
+  padding: 10px;
+}
+.headline{
+  font-family: 'Yeseva One', cursive;
 }

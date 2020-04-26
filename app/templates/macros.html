@@ -17,20 +17,20 @@
 
 {%macro displayArticles(article_list)%}
   {%for article in article_list%}
-  <div class="text-center">
-    <h4>{{article.title}}</h4>
-    <blockquote>By {{article.author}} </blockquote>
-    <cite class="cool"> Published on : {{article.publishedAt}}</cite>
+  <div class="text-center article-all">
+    <h3 class="article-title">{{article.title}}</h3>
+    <blockquote class="article-author">By {{article.author}} </blockquote>
+    <cite class="article-published"> Published on : {{article.publishedAt}}</cite>
     <div>
       {%if article.descriptions%}
-      <h5>In the news today</h5>
+      <h4>In the news today</h4>
       <p>{{article.descriptions}}</p>
       {%else%}
       <p> All our articles are verified </p>
       {%endif%}
     </div>
     <div>
-      <h5>Main Story</h5>
+      <h4>Main Story</h4>
       <p>{{article.content}}</p>
       <a href="{{article.url}}">Read More...</a>
     </div>

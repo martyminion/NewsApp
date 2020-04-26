@@ -10,10 +10,11 @@ def configure_request(app):
   '''
   function to get the api key and the base url
   '''
-  global api_key,base_url,sources_base_url
+  global api_key,base_url,sources_base_url,search_base_url
   api_key = app.config['NEWS_API_KEY']
   base_url = app.config['NEWS_API_BASE_URL']
   sources_base_url = app.config['NEWS_API_SOURCES_BASE_URL']
+  search_base_url = app.config['NEWS_SEARCH_API']
 
 def process_results(news_results):
   '''
@@ -57,36 +58,57 @@ def get_sources():
       source_results = process_results(source_results_list)
   return source_results
 
+def process_articles(article_list):
+  '''
+  function that processes results and returns a list
+  '''
+  article_result_list = []
+   
+  for article in article_list:
+    author = article.get('author')
+    title = article.get('title')
+    descriptions = article.get('description')
+    publishedAt = article.get('publishedAt')
+    url = article.get('url')
+    if article.get('content'):
+      content = article.get('content')
+    else:
+      content = "There's isn't much to see here, so visit the site for more"
+
+    article_object = Articles(author,title,descriptions,publishedAt,url,content)
+    article_result_list.append(article_object)
+  return article_result_list
+
+
 def get_source_articles(source_id):
   '''
   function that gets the articles from the different sources/ or the selcted source)
   '''
-  article_url = base_url.format("top-headlines",source_id,api_key)
+  article_url = base_url.format("everything",source_id,api_key)
   with urllib.request.urlopen(article_url) as url:
     article_data = url.read()
     article_response = json.loads(article_data)
 
-
     if article_response['articles']:
       article_list = article_response['articles']
+      article_sources = process_articles(article_list)
     
-    article_result_list = []
-   
-    for article in article_list:
-      author = article.get('author')
-      title = article.get('title')
-      descriptions = article.get('description')
-      publishedAt = article.get('publishedAt')
-      url = article.get('url')
-      if article.get('content'):
-        content = article.get('content')
-      else:
-        content = "There's isn't much to see here, so visit the site for more"
+    return  article_sources
+  
+def get_searched_articles(source_id,search_term):
+  '''
+  function that gets the articles from a search from a particular news source
+  '''
+  search_url = search_base_url.format(source_id,search_term,api_key)
+  with urllib.request.urlopen(search_url) as url:
+    search_data = url.read()
+    search_response = json.loads(search_data)
 
-      article_object = Articles(author,title,descriptions,publishedAt,url,content)
-      article_result_list.append(article_object)
-    return  article_result_list
-    
-    
+
+  if search_response['articles']:
+    search_list = search_response['articles']
+    searched_articles_list = process_articles(search_list)
+   
+  return  searched_articles_list
     
     

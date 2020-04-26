@@ -1,6 +1,9 @@
-from flask import render_template
+from flask import render_template,request
 from . import main
 from ..requests import get_sources,get_source_articles
+
+
+
 
 @main.route("/")
 def index():
@@ -19,7 +22,12 @@ def topArticles(sourceId):
   function tht displays the results from a particular source
   '''
   article_results = get_source_articles(sourceId)
+  sources = get_sources()
+  for source in sources:
+    if source.id == sourceId:
+      label = source.name
 
   title = f"Articles from {sourceId}"
 
-  return render_template("articles.html",title = title, articles = article_results)
+  return render_template("articles.html",title = title, articles = article_results, label = label)
+

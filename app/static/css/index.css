@@ -2,10 +2,11 @@
 border: solid red 5px;
 padding:10px;
 height: 400px;
-margin:10px;
+margin: 5px;
 }
 #source-title{
   font-family: 'Righteous', cursive;
+  font-size: 20px;
 }
 .source-card-body{
   margin: 10px;
