@@ -1,11 +1,10 @@
 {%macro displayNewsSources(source_list)%}
-
 {%for source in source_list%}
 
 <div class="col-md-3 col-lg-2 col-sm-4 col-xs-6">
-  <div class="card source-card" style="width: 20rem;">
-    <div class="card-body source-card-body">
-      <h5 class="card-title">{{source.name}}</h5>
+  <div class=" source-card card " style="width: 20rem;">
+    <div class="source-card-body card-body ">
+      <h5 class="card-title" id="source-title">{{source.name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{source.category}}</h6>
       <p class="card-text">{{source.description}}</p>
       <a href="/search/{{source.id}}" class="card-link">View Top Headlines</a>
@@ -21,7 +20,7 @@
   <div class="text-center">
     <h4>{{article.title}}</h4>
     <blockquote>By {{article.author}} </blockquote>
-    <cite> Published on : {{article.publishedAt}}</cite>
+    <cite class="cool"> Published on : {{article.publishedAt}}</cite>
     <div>
       {%if article.descriptions%}
       <h5>In the news today</h5>

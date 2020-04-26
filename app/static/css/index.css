@@ -1,9 +1,12 @@
-.source-card-body{
-  margin: 10px
-}
 .source-card{
 border: solid red 5px;
 padding:10px;
 height: 400px;
 margin:10px;
+}
+#source-title{
+  font-family: 'Righteous', cursive;
+}
+.source-card-body{
+  margin: 10px;
 }

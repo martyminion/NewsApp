@@ -1,26 +1,21 @@
 {%extends 'base.html'%}
-{%import 'macros.html' as macro%}
+{%import 'macros.html' as macro with context%}
 
 <!-- Styles block -->
 
 {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+  {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    
 {% endblock %}
 
 <!--Content Block-->
 {%block content%}
-  <h3>News Sources</h3>
+  <h1 class="text-center">News Sources</h1>
   <br>
   <div>
   {{macro.displayNewsSources(sources)}}
 </div>
 {%endblock%}
 
-<!-- <ul>
-  {%for source in sources%}
-    <li>{{source.id}}</li>
-    <a href="/search/{{source.id}}"><li>{{source.description}}</li></a>
-    <li>{{source.category}}</li>
-  {%endfor%}
-</ul> -->
