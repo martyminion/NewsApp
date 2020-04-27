@@ -21,3 +21,9 @@ h4,h3{
 .headline{
   font-family: 'Yeseva One', cursive;
 }
+.articleImage{
+  width: 250px;
+  height: 200px;
+  float: left;
+  
+}

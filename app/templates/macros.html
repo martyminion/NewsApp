@@ -18,9 +18,9 @@
 {%macro displayArticles(article_list)%}
   {%for article in article_list%}
   <div class="text-center article-all">
+    <img src="{{article.urltoImage}}" alt="{{article.title|truncate(10)}}" class="articleImage">
     <h3 class="article-title">{{article.title}}</h3>
     <blockquote class="article-author">By {{article.author}} </blockquote>
-    <img src="{{article.urltoImage}}" alt="{{article.title|truncate(10)}}" width="200" height="200">
     <cite class="article-published"> Published on : {{article.publishedAt}}</cite>
     <div>
       {%if article.descriptions%}
