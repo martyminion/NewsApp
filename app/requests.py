@@ -74,8 +74,12 @@ def process_articles(article_list):
       content = article.get('content')
     else:
       content = "There's isn't much to see here, so visit the site for more"
+    if article.get('urlToImage'):
+      urltoImage = article.get('urlToImage')
+    else:
+      urltoImage = "no image"
 
-    article_object = Articles(author,title,descriptions,publishedAt,url,content)
+    article_object = Articles(author,title,descriptions,publishedAt,url,content,urltoImage)
     article_result_list.append(article_object)
   return article_result_list
 
