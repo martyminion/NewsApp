@@ -16,3 +16,13 @@ body{
 .icon-bar{
   border: teal 2px solid;
 }
+#logo-title{
+  font-family: 'Old Standard TT', serif;
+  font-size: 20px;
+  padding-left: 10px;
+}
+#nav-home{
+  font-family: 'Old Standard TT', serif;
+  font-size: 20px;
+  padding-left: 10px;
+}
